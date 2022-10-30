@@ -1,0 +1,18 @@
+.buttons{
+    background-color: #f2711c;
+    padding: 3px ;
+    padding-left:10px ;
+    padding-right:10px;
+    border-radius: 2px;
+    margin-left: 5px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+.buttons:hover{
+    color: rgb(226, 223, 223);
+}
+.buttons:active{
+    background-color: #f0995f;
+}
