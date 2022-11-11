@@ -17,6 +17,8 @@ import { activeTrack } from "./TrackState";
 
 const Playing = () => { 
 const [active] = useRecoilState(activeTrack)
+
+
   return (
     <>
    
@@ -41,6 +43,7 @@ const [active] = useRecoilState(activeTrack)
               <br />
               <br />
               <audio
+              id="song"
                 controls
                 style={{ float: "left" }}
                 controlsList="nodownload noplaybackrate"
@@ -80,6 +83,7 @@ const [active] = useRecoilState(activeTrack)
           size="tiny"
           floated="left"
           id="player-details"
+          onClick={(()=>{document.getElementById('song').play()})}
         >
           PLAY
         </Button>
