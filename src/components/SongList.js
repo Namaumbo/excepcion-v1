@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Grid, Button, Image } from "semantic-ui-react";
 import photo1 from "../Asserts/photo1.jpg";
@@ -16,6 +16,15 @@ export default function SongList() {
   const indexOfFirstTrack = indexOfLastTrack - tracksPerPage;
   const currentTracks = songsArray.slice(indexOfFirstTrack, indexOfLastTrack);
 
+  const [isDesktop, setDesktop] = useState(window.innerWidth > 960);
+  const updateMedia = () => {
+    setDesktop(window.innerWidth > 960);
+  };
+  useEffect(() => {
+    window.addEventListener("resize", updateMedia);
+    return () => window.removeEventListener("resize", updateMedia);
+  });
+
   const [trackInfo, setTrackInfo] = useRecoilState(activeTrack);
 
   function getActiveUrl(title, downloadableUrl) {
@@ -27,6 +36,8 @@ export default function SongList() {
   return (
     <>
       <Grid centered container>
+      {
+  isDesktop? 
         <Grid.Row columns={4}>
           {currentTracks.map((track) => {
             return (
@@ -65,7 +76,47 @@ export default function SongList() {
               </Grid.Column>
             );
           })}
-        </Grid.Row>
+        </Grid.Row>:
+        <Grid.Row columns={2}>
+        {currentTracks.map((track) => {
+          return (
+            <Grid.Column key={track.title}>
+              <div>
+                <div
+                  style={{
+                    border: "15px solid  #e0e5e5",
+                    borderRadius: "20px",
+                    width: "200px",
+                    padding: "5px",
+                    boxShadow: "2px 2px 8px -3px",
+                  }}
+                >
+                  <Image src={photo1} alt="photo1" width="200px" />
+                </div>
+                <p className="song-title">{track.title}- </p>
+                {/* buttons */}
+                <Link to={track.title}>
+                  <Button
+                    compact
+                    color="orange"
+                    size="mini"
+                    onClick={() => getActiveUrl(track.title, track.url)}
+                  >
+                    PLAY NOW
+                  </Button>
+                </Link>
+
+                <Link to={track.url}>
+                  <Button compact color="orange" size="mini">
+                    DOWNLOAD NOW
+                  </Button>
+                </Link>
+              </div>
+            </Grid.Column>
+          );
+        })}
+      </Grid.Row>
+}
       </Grid>
       <hr
         style={{
