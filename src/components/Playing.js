@@ -12,11 +12,13 @@ import {
 import photo1 from "../Asserts/photo1.jpg";
 import {  useRecoilState } from "recoil";
 import { activeTrack } from "./TrackState";
+import { useState } from "react";
 
 
 
 const Playing = () => { 
 const [active] = useRecoilState(activeTrack)
+const [playing,setPlaying] = useState("PLAY")
 
 
   return (
@@ -83,9 +85,16 @@ const [active] = useRecoilState(activeTrack)
           size="tiny"
           floated="left"
           id="player-details"
-          onClick={(()=>{document.getElementById('song').play()})}
+          onClick={(()=>{
+            document.getElementById('song').play()
+            setPlaying("PAUSE")
+            if(playing==="PAUSE"){
+              document.getElementById('song').pause()
+              setPlaying("PLAY")
+            }
+          })}
         >
-          PLAY
+          {playing}
         </Button>
         <br />
         <br />
