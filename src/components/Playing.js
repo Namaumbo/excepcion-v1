@@ -28,7 +28,7 @@ const [playing,setPlaying] = useState("PLAY")
         <Segment id="player">
           <Grid columns={2}>
             <Grid.Column>
-              <Label color="orange" style={{marginLeft:"-34em"}}>
+              <Label color="orange">
                 NOW PLAYING
               </Label>
               <br />

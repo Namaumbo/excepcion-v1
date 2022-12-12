@@ -17,7 +17,7 @@ export default class ParentNav extends Component {
           <>
             <Menu secondary style={{ height: "80px" }}>
               <Link
-                to="/blogs"
+                to="/track/"
                 style={{
                   textDecoration: "none",
                   marginTop: "1em",
@@ -27,6 +27,7 @@ export default class ParentNav extends Component {
                 <Menu.Item
                   active={activeItem === "bars"}
                   onClick={this.handleItemClick}
+                  title="search a song"
                 >
                   <Icon name="search"></Icon>
                 </Menu.Item>
@@ -41,6 +42,7 @@ export default class ParentNav extends Component {
                   icon="list"
                   active={activeItem === "search"}
                   onClick={this.handleItemClick}
+                  title="List of songs"
                 />
               </Link>
               <Menu.Item

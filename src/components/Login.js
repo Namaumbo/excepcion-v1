@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Form, Button, Input } from "semantic-ui-react";
 import ExceptionalLogo from "../Asserts/Logo.png";
 import "./login.css";
@@ -47,7 +47,7 @@ export default function Login() {
                 placeholder="password"
               ></Form.Field>
 
-              {/* <Link to="admin"> */}
+              <Link to="admin">
                 {" "}
                 <Button
                   type="submit"
@@ -58,7 +58,7 @@ export default function Login() {
                 >
                   {message}
                 </Button>
-              {/* </Link> */}
+              </Link>
             </Form>
           </div>
         </div>

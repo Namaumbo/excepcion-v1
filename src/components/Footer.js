@@ -5,6 +5,7 @@ const Footer = () => (
   <>
     <Segment padded="very" tertiary style={{     
           bottom: "0",
+          position:"fixed",
           width: "100%",
         }}  >
       <Grid columns="equal">
