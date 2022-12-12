@@ -7,6 +7,7 @@ const Footer = () => (
           bottom: "0",
           position:"fixed",
           width: "100%",
+          height:"4.3em"
         }}  >
       <Grid columns="equal">
         <Grid.Column>1</Grid.Column>
